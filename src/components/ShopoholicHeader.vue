@@ -1,0 +1,80 @@
+<script setup>
+import { useCounterStore } from "../store";
+import { defineProps } from "vue";
+
+const props = defineProps({
+  id: { required: true, type: String },
+});
+console.log(props.id);
+
+const store = useCounterStore();
+</script>
+<template>
+  <header>
+    <!-- <span v-if="goHome">
+      <RouterLink to="/">
+        <img class="return" src="/assets/backArrow.svg" alt="" />
+      </RouterLink>
+    </span> -->
+    <h1>Shop-o-Holic</h1>
+    <div class="flex-container">
+      <span>
+        <RouterLink to="/cart">
+          <img src="/assets/cart.svg" alt="" />
+          <div class="inCart" v-if="store.inCart">
+            {{ store.inCart }}
+          </div>
+        </RouterLink>
+      </span>
+    </div>
+  </header>
+</template>
+<style scoped>
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #e8e3dd;
+  padding: 0px 15px;
+}
+h1 {
+  text-align: center;
+  grid-column: 2/3;
+}
+.flex-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+button {
+  padding: 5px;
+}
+
+span {
+  position: relative;
+}
+
+img {
+  padding: none;
+  width: 30px;
+  color: black;
+  margin: none;
+}
+
+.inCart {
+  background-color: red;
+  color: aliceblue;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 0;
+  top: -5px;
+  text-align: center;
+  line-height: 15px;
+}
+
+/* .return {
+}
+</style>
+*/
