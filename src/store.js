@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 export const useCounterStore = defineStore("counter", {
   actions: {
-    increment() {
+    addToCart(id) {
       this.inCart++;
+      this.cartItems.push(id);
     },
   },
-  state: () => ({ inCart: 0 }),
+  state: () => ({ inCart: 0, cartItems: [] }),
 });

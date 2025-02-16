@@ -3,20 +3,18 @@ import { useCounterStore } from "../store";
 import { defineProps } from "vue";
 
 const props = defineProps({
-  id: { required: true, type: String },
+  id: { type: String },
 });
-console.log(props.id);
-
+// console.log(props.id);
 const store = useCounterStore();
 </script>
 <template>
   <header>
-    <!-- <span v-if="goHome">
-      <RouterLink to="/">
-        <img class="return" src="/assets/backArrow.svg" alt="" />
+    <div class="center">
+      <RouterLink style="text-decoration: none; color: inherit" to="/">
+        <h1>Shop-o-Holic</h1>
       </RouterLink>
-    </span> -->
-    <h1>Shop-o-Holic</h1>
+    </div>
     <div class="flex-container">
       <span>
         <RouterLink to="/cart">
@@ -29,6 +27,7 @@ const store = useCounterStore();
     </div>
   </header>
 </template>
+
 <style scoped>
 header {
   display: grid;
@@ -36,7 +35,7 @@ header {
   background-color: #e8e3dd;
   padding: 0px 15px;
 }
-h1 {
+.center {
   text-align: center;
   grid-column: 2/3;
 }
@@ -73,8 +72,4 @@ img {
   text-align: center;
   line-height: 15px;
 }
-
-/* .return {
-}
 </style>
-*/

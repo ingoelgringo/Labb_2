@@ -32,7 +32,7 @@ async function getHomeDecoration() {
         <h3>{{ furniture.title }}</h3>
         <div class="flex-buy">
           <p>$ {{ furniture.price }}</p>
-          <button @click="store.increment()">add to cart</button>
+          <button @click="store.addToCart(furniture.id)">add to cart</button>
         </div>
       </div>
     </section>
@@ -44,7 +44,9 @@ async function getHomeDecoration() {
         <h3>{{ decoration.title }}</h3>
         <div class="flex-buy">
           <p>$ {{ decoration.price }}</p>
-          <button @click="store.increment()">add to cart</button>
+          <button @click="store.addToCart(decoration.id)">
+            add to cart
+          </button>
         </div>
       </div>
     </section>

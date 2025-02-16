@@ -11,6 +11,7 @@ const props = defineProps({
 const item = ref(null);
 
 getItem();
+console.log(props.id);
 
 async function getItem() {
   item.value = (item.value = await axios.get(
@@ -20,11 +21,23 @@ async function getItem() {
 </script>
 <template>
   <template v-if="item !== null">
-    <img class="item" :src="item.images[0]" alt="image" />
-    <h3>{{ item.title }}</h3>
-    <div>
-      <p>$ {{ item.price }}</p>
-      <button @click="store.increment()">add to cart</button>
+    <div class="flex-container">
+      <section>
+        <img class="item" :src="item.images[0]" alt="image" />
+        <div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <p>
+            Dimensions: {{ item.dimensions.width }} *
+            {{ item.dimensions.height }} *
+            {{ item.dimensions.depth }}
+          </p>
+          <div>
+            <p>$ {{ item.price }}</p>
+            <button @click="store.addDecoration(item.id)">add to cart</button>
+          </div>
+        </div>
+      </section>
     </div>
   </template>
 </template>
@@ -33,6 +46,25 @@ async function getItem() {
 .item {
   background-color: #f0edec;
 
-  width: 200px;
+  width: 100%;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+section {
+  display: flex;
+  width: 600px;
+}
+
+img {
+  width: auto;
+}
+
+p,
+h3 {
+  text-align: center;
 }
 </style>
