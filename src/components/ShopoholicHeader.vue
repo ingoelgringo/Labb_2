@@ -1,11 +1,11 @@
 <script setup>
 import { useCounterStore } from "../store";
-import { defineProps } from "vue";
+import { defineProps, computed } from "vue";
 
 const props = defineProps({
   id: { type: String },
 });
-// console.log(props.id);
+const inCart = computed(() => store.cartItems.length);
 const store = useCounterStore();
 </script>
 <template>
@@ -19,8 +19,8 @@ const store = useCounterStore();
       <span>
         <RouterLink to="/cart">
           <img src="/assets/cart.svg" alt="" />
-          <div class="inCart" v-if="store.inCart">
-            {{ store.inCart }}
+          <div class="inCart" v-if="inCart">
+            {{ inCart }}
           </div>
         </RouterLink>
       </span>

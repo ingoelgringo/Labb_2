@@ -5,13 +5,12 @@ import { useCounterStore } from "../store";
 
 const store = useCounterStore();
 const props = defineProps({
-  id: { required: true, type: String },
+  id: { type: String },
 });
 
 const item = ref(null);
 
 getItem();
-console.log(props.id);
 
 async function getItem() {
   item.value = (item.value = await axios.get(
@@ -34,7 +33,7 @@ async function getItem() {
           </p>
           <div>
             <p>$ {{ item.price }}</p>
-            <button @click="store.addDecoration(item.id)">add to cart</button>
+            <button @click="store.addToCart(props.id)">add to cart</button>
           </div>
         </div>
       </section>
