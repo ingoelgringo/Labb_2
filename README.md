@@ -17,7 +17,7 @@
 
     - [x] Använd någonting annat än fetch (till exempel Axios) för att göra webbanrop
     - [x] Minst en beräknad egenskap (computed) används
-    - [ ] Minst en bevakare (watch) används
+    - [x] Minst en bevakare (watch) används
     - [x] Alla props ska vara typsäkra
-    - [ ] Minst ett custom event används (skickas och tas emot)
+    - [x] Minst ett custom event används (skickas och tas emot)
     - [x] Använd minst ett Vue Router-adressparametervärde

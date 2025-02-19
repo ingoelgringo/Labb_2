@@ -1,3 +1,5 @@
+// visar upp alla produkter
+
 <script setup>
 import axios from "axios";
 import { ref } from "vue";

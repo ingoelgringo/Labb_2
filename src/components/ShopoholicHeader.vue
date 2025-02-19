@@ -1,3 +1,5 @@
+// headern
+
 <script setup>
 import { useCounterStore } from "../store";
 import { defineProps, computed } from "vue";
@@ -8,6 +10,7 @@ const props = defineProps({
 const inCart = computed(() => store.cartItems.length);
 const store = useCounterStore();
 </script>
+
 <template>
   <header>
     <div class="center">
