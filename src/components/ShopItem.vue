@@ -6,7 +6,10 @@ import { useCounterStore } from "../store";
 const store = useCounterStore();
 const props = defineProps({
   id: { type: String },
+  searchWord: { type: String },
 });
+
+console.log(props.searchWord);
 
 const item = ref(null);
 
@@ -19,7 +22,7 @@ async function getItem() {
 }
 </script>
 <template>
-  <template v-if="item !== null">
+  <template v-if="item !== null && !props.searchWord">
     <div class="flex-container">
       <section>
         <img class="item" :src="item.images[0]" alt="image" />
